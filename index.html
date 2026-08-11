@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AC FC Official Website</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:Arial,Helvetica,sans-serif;background:#07090c;color:#fff;min-height:100vh}
+nav{position:fixed;top:0;left:0;width:100%;height:72px;display:flex;align-items:center;justify-content:space-between;padding:0 7%;border-bottom:1px solid #202832;background:rgba(7,9,12,.88);backdrop-filter:blur(12px);z-index:10}
+.logo{font-size:23px;font-weight:900;letter-spacing:-.7px}
+.navlinks{display:flex;gap:26px;color:#aeb6bf}.navlinks span{cursor:pointer}.navlinks span:hover{color:#fff}
+section{min-height:100vh;padding:115px 7% 70px}
+.hero{display:flex;align-items:center;justify-content:center;text-align:center;background:radial-gradient(circle at center,#142231 0%,#07090c 58%)}
+.hero h1{font-size:clamp(48px,8vw,94px);font-weight:900;line-height:1;margin-bottom:20px}
+.hero p{font-size:18px;color:#aeb6bf;max-width:680px;margin:0 auto 30px;line-height:1.6}
+.btn{padding:14px 24px;border-radius:12px;background:#fff;color:#090b0e;font-weight:800;cursor:pointer;border:0;font-size:16px;transition:.2s;margin:6px}
+.btn:hover{transform:translateY(-2px);opacity:.9}
+#rules{display:none;flex-direction:column;align-items:center;background:linear-gradient(#080b10,#0c1219)}
+.content{width:min(950px,100%)}
+h2{font-size:clamp(34px,5vw,52px);margin-bottom:26px}
+.rule{background:#111821;border:1px solid #202c37;border-radius:14px;padding:18px 20px;margin:12px 0;line-height:1.55;color:#d8dee5}
+.rule strong{color:#fff}
+.notice{margin-top:18px;padding:17px;border-left:4px solid #fff;background:#111821;color:#cbd2d9}
+.actions{text-align:center;margin-top:28px}
+#teams,#captains,#createTeam{display:none;background:#0b0e13}
+.team{background:#111821;border:1px solid #202c37;border-radius:14px;padding:18px 20px;margin:12px 0;line-height:1.55}
+.status{font-weight:900}
+.open{color:#70e08b}.full{color:#ff7070}
+.cosmetic{color:#aeb8c2}
+#discordModal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.75);z-index:50;align-items:center;justify-content:center;padding:20px}
+.modal{background:#111821;border:1px solid #2a3946;border-radius:18px;padding:30px;max-width:520px;width:100%;text-align:center}
+.modal a{display:block;color:#8ec8ff;font-size:18px;word-break:break-all;margin:18px 0}
+.close{background:#242d36;color:#fff}
+.music{position:fixed;bottom:20px;right:20px;z-index:20;background:#151d25;color:#fff;border:1px solid #2c3a46;border-radius:999px;padding:10px 15px;cursor:pointer}
+</style>
+</head>
+<body>
+<nav>
+  <div class="logo">AC FC Official Website</div>
+  <div class="navlinks"><span onclick="goHome()">Home</span><span onclick="showRules()">Rules</span></div>
+</nav>
+
+<section class="hero" id="home">
+  <div>
+    <h1>⚽ AC FC</h1>
+    <p>Welcome to the official AC FC website. Check the in-game rules and see which teams are open or full.</p>
+    <button class="btn" onclick="showRules()">Get Started</button>
+  </div>
+</section>
+
+<section id="rules">
+  <div class="content">
+    <h2>⚽ AC FC | In-Game Rules</h2>
+    <p class="rule">Please follow these rules during all official AC FC matches. Failure to do so may result in penalties or even kicked out the game.</p>
+
+    <div class="rule"><strong>1. Goalkeeper Line</strong><br>Players may not cross the goalkeeper line. Doing so will result in a penalty kick to the opposing team.</div>
+    <div class="rule"><strong>2. Kickoff</strong><br>Do not kick the ball before the countdown. Early kicks will result in a free kick for the opposing team.</div>
+    <div class="rule"><strong>3. Chat Conduct</strong><br>Cursing is allowed however, slurs will get you blacklisted or even the &lt;@&amp;1520534447886438521&gt; for a couple of days.</div>
+    <div class="rule"><strong>4. Breaks</strong><br>Players may not take repeated breaks during a match.</div>
+    <div class="rule"><strong>5. Goal Box</strong><br>Only the goalkeeper is ALOWED to touch the ball inside the goal box. Even if its your own teammate</div>
+    <div class="rule"><strong>6. Roster Changes</strong><br>If a new player joins your team after a match that your team won that player is not able to participate in the following matches.</div>
+    <div class="rule"><strong>7. Minimum Players</strong><br>Each team must have at least four (4) players in game to begin a match Teams that fail to meet the requirement will be disqualified.</div>
+
+    <div class="notice"><strong>📌 Notice</strong><br>These rules are able to change at any time.</div>
+
+    <div class="actions">
+      <button class="btn" onclick="openDiscord()">Discord Link</button>
+      <button class="btn" onclick="showTeams()">More..</button>
+    </div>
+  </div>
+</section>
+
+<section id="teams">
+  <div class="content">
+    <h2>Full or Open teams/The Teams Cosmetic</h2>
+
+    <div class="team"><strong>Samba Kings:</strong> <span class="status open">OPEN</span><br>7/8<br><span class="cosmetic">Cosmetic: Brazil jersey or yellow skin tone</span></div>
+    <div class="team"><strong>Moon Light United:</strong> <span class="status open">OPEN</span><br>3/8<br><span class="cosmetic">Cosmetic: Argentina jersey or white skin tone</span></div>
+    <div class="team"><strong>Red Legion:</strong> <span class="status open">OPEN</span><br>5/8<br><span class="cosmetic">Cosmetic: USA Jersey or red skin tone</span></div>
+    <div class="team"><strong>No Mercy United:</strong> <span class="status open">OPEN</span><br>7/8<br><span class="cosmetic">Cosmetic: Portugal Jersey or black skin tone</span></div>
+    <div class="team"><strong>Striker Elite FC:</strong> <span class="status full">FULL</span><br>6/8<br><span class="cosmetic">Cosmetic: OG shirt or blue skin tone</span></div>
+    <div class="team"><strong>Altitude United FC:</strong> <span class="status open">OPEN</span><br>5/8<br><span class="cosmetic">Cosmetic: Team Blue Fire shirt (arena mode) or purple skin tone</span></div>
+    <div class="team"><strong>Little Cats FC:</strong> <span class="status open">OPEN</span><br>6/8<br><span class="cosmetic">Cosmetic: Black Varsity jacket or black skin tone</span></div>
+    <div class="team"><strong>Red And Blue Rangers:</strong> <span class="status open">OPEN</span><br>5/8<br><span class="cosmetic">Cosmetic: Red varsity jacket, blue skin tone</span></div>
+    <div class="team"><strong>Nacho FC:</strong> <span class="status open">OPEN</span><br>6/8<br><span class="cosmetic">Cosmetic: Gray skin tone with blue clothing</span></div>
+    <div class="team"><strong>Rising Stars:</strong> <span class="status open">OPEN</span><br>3/8<br><span class="cosmetic">Cosmetic: Smiley Face Shirt or yellow skin tone</span></div>
+    <div class="team"><strong>Animal FC:</strong> <span class="status open">OPEN</span><br>8/8<br><span class="cosmetic">Cosmetic: Chinese dragon hat or orange skin tone</span></div>
+    <div class="team"><strong>Smileys:</strong> <span class="status full">FULL</span><br>9/8<br><span class="cosmetic">Cosmetic: Yellow Skin Tone</span></div>
+    <div class="team"><strong>Ultimate United:</strong> <span class="status open">OPEN</span><br>3/8<br><span class="cosmetic">Cosmetic: Smiley Shirt or red skin tone</span></div>
+    <div class="team"><strong>Red Ducks:</strong> <span class="status open">OPEN</span><br>6/8<br><span class="cosmetic">Cosmetic: Glitched Gorilla or black skin tone</span></div>
+    <div class="team"><strong>Canopy Waves:</strong> <span class="status full">FULL</span><br>8/8<br><span class="cosmetic">Cosmetic: Lightblue skin tone with shadow boss hat</span></div>
+    <div class="team"><strong>Sun United:</strong> <span class="status full">FULL</span><br>8/8<br><span class="cosmetic">Cosmetic: yellow With Sun Hat</span></div>
+    <div class="team"><strong>Fc Reunited:</strong> <span class="status full">FULL</span><br>8/8<br><span class="cosmetic">Cosmetic: Green skin</span></div>
+    <div class="team"><strong>Canopy Waves:</strong> <span class="status full">FULL</span><br>8/8<br><span class="cosmetic">Cosmetic: Red team (arena shirt)</span></div>
+    <div class="team"><strong>Canopy United:</strong> <span class="status open">OPEN</span><br>6/8<br><span class="cosmetic">Cosmetic: Brown skin tone</span></div>
+
+    <div class="notice">-# There are 19 teams open.</div>
+
+    <div class="actions">
+      <button class="btn" onclick="showCaptains()">Team Captains</button>
+      <button class="btn" onclick="showCreateTeam()">How To Create A Team</button>
+    </div>
+    <div class="actions"><button class="btn" onclick="showRules()">← Back to Rules</button></div>
+  </div>
+</section>
+
+<section id="captains">
+  <div class="content">
+    <h2>Team Captains</h2>
+    <div class="team"><strong>Samba Kings:</strong> DestroyAstro</div>
+    <div class="team"><strong>No Mercy United:</strong> Aries</div>
+    <div class="team"><strong>Red Legion FC:</strong> Stickman</div>
+    <div class="team"><strong>Moonlight United:</strong> Zikovr</div>
+    <div class="team"><strong>Striker Elite:</strong> FlamePolo</div>
+    <div class="team"><strong>Red and Blue Rangers:</strong> angel046</div>
+    <div class="team"><strong>Altitude United FC:</strong> tbbugs</div>
+    <div class="team"><strong>Little Cats:</strong> Chopps</div>
+    <div class="team"><strong>Nacho FC:</strong> Just Nacho</div>
+    <div class="team"><strong>Rising Stars:</strong> nova.is.c00l</div>
+    <div class="team"><strong>Animal FC:</strong> Logan AC</div>
+    <div class="team"><strong>Smileys:</strong> Lost</div>
+    <div class="team"><strong>Ultimate United:</strong> Hunterac</div>
+    <div class="team"><strong>Red Ducks:</strong> Kido vr</div>
+    <div class="team"><strong>Canopy Waves:</strong> Mango</div>
+    <div class="team"><strong>Sun United:</strong> Sun.ac</div>
+    <div class="team"><strong>FC Reunited:</strong> WEB</div>
+    <div class="team"><strong>Canopy United:</strong> Jilla_ac</div>
+    <div class="actions"><button class="btn" onclick="showTeams()">← Back</button></div>
+  </div>
+</section>
+
+<section id="createTeam">
+  <div class="content">
+    <h2>How to create a team</h2>
+    <div class="rule"><strong>• Make a TEAM logo, pfp, flag and name</strong></div>
+    <div class="rule"><strong>• Send the logo, pfp, flag and name to Astro in DM's</strong></div>
+    <div class="rule"><strong>• Wait for Astro to say if your team is Official or not!</strong></div>
+    <div class="rule"><strong>• HE WILL ANNOUNCE YOUR TEAM ON LIVE</strong></div>
+    <div class="notice">If your team doesn't you can always wait for next season.</div>
+    <div class="actions"><button class="btn" onclick="showTeams()">← Back</button></div>
+  </div>
+</section>
+
+<div id="discordModal">
+  <div class="modal">
+    <h2>💬 AC FC Discord</h2>
+    <p>Join the official AC FC Discord:</p>
+    <a href="https://discord.gg/phe2HvYjX" target="_blank">https://discord.gg/phe2HvYjX</a>
+    <button class="btn close" onclick="closeDiscord()">Close</button>
+  </div>
+</div>
+
+<button class="music" id="musicBtn" onclick="toggleMusic()">🔊 Soccer Music</button>
+
+<script>
+let audioCtx=null, master=null, playing=false, timer=null, noteIndex=0;
+
+function startMusic(){
+  if(!audioCtx){
+    audioCtx=new (window.AudioContext||window.webkitAudioContext)();
+    master=audioCtx.createGain();
+    master.gain.value=.035;
+    master.connect(audioCtx.destination);
+  }
+  audioCtx.resume();
+  if(!playing){playing=true; soccerLoop();}
+  document.getElementById("musicBtn").textContent="🔊 Soccer Music";
+}
+
+function soccerLoop(){
+  if(!playing)return;
+
+  // Original stadium-style soccer instrumental — not a recording of any copyrighted song.
+  const melody=[329.63,392,440,392,329.63,293.66,349.23,392];
+  const bass=[164.81,164.81,196,196];
+  const freq=melody[noteIndex%melody.length];
+
+  const osc=audioCtx.createOscillator(), g=audioCtx.createGain();
+  osc.type="sawtooth"; osc.frequency.value=freq;
+  g.gain.setValueAtTime(.001,audioCtx.currentTime);
+  g.gain.linearRampToValueAtTime(.12,audioCtx.currentTime+.03);
+  g.gain.exponentialRampToValueAtTime(.001,audioCtx.currentTime+.42);
+  osc.connect(g);g.connect(master);osc.start();osc.stop(audioCtx.currentTime+.45);
+
+  const b=audioCtx.createOscillator(), bg=audioCtx.createGain();
+  b.type="square"; b.frequency.value=bass[Math.floor(noteIndex/2)%bass.length];
+  bg.gain.setValueAtTime(.001,audioCtx.currentTime);
+  bg.gain.linearRampToValueAtTime(.06,audioCtx.currentTime+.02);
+  bg.gain.exponentialRampToValueAtTime(.001,audioCtx.currentTime+.5);
+  b.connect(bg);bg.connect(master);b.start();b.stop(audioCtx.currentTime+.52);
+
+  noteIndex++;
+  timer=setTimeout(soccerLoop,500);
+}
+function toggleMusic(){
+  if(!audioCtx){startMusic();return}
+  playing=!playing;
+  if(playing){audioCtx.resume();soccerLoop();document.getElementById("musicBtn").textContent="🔊 Soccer Music"}
+  else{audioCtx.suspend();clearTimeout(timer);document.getElementById("musicBtn").textContent="🔇 Soccer Music"}
+}
+
+function hideAllContent(){
+  document.getElementById("rules").style.display="none";
+  document.getElementById("teams").style.display="none";
+  document.getElementById("captains").style.display="none";
+  document.getElementById("createTeam").style.display="none";
+}
+function showCaptains(){
+  hideAllContent();
+  document.getElementById("captains").style.display="block";
+  document.getElementById("captains").scrollIntoView({behavior:"smooth"});
+}
+function showCreateTeam(){
+  hideAllContent();
+  document.getElementById("createTeam").style.display="block";
+  document.getElementById("createTeam").scrollIntoView({behavior:"smooth"});
+}
+function showRules(){
+  startMusic();
+  hideAllContent();
+  document.getElementById("rules").style.display="flex";
+  document.getElementById("rules").scrollIntoView({behavior:"smooth"});
+}
+function showTeams(){
+  hideAllContent();
+  document.getElementById("teams").style.display="block";
+  document.getElementById("teams").scrollIntoView({behavior:"smooth"});
+}
+function goHome(){document.getElementById("home").scrollIntoView({behavior:"smooth"})}
+function openDiscord(){document.getElementById("discordModal").style.display="flex"}
+function closeDiscord(){document.getElementById("discordModal").style.display="none"}
+</script>
+</body>
+</html>
